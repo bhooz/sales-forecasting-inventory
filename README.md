@@ -1,30 +1,48 @@
-# 📊 Retail Sales Forecasting & Inventory Optimization Dashboard
+# 📈 Sales Forecasting & Inventory Optimization Dashboard
 
-## 📌 Executive Summary
-This project delivers an end-to-end data engineering and predictive analytics pipeline designed to solve a core retail supply chain challenge: **balancing stockout risk against excess holding costs**. 
-
-Using historical retail transaction data, the system extracts aggregated trends via SQL, trains an **XGBoost machine learning model** to predict weekly demand, computes safety stock parameters, and presents actionable insights through an interactive **Power BI Executive Dashboard**.
+An end-to-end analytics and machine learning solution designed to predict product demand, calculate dynamic safety stock levels, and present executive-grade inventory insights using **Python (XGBoost)**, **SQLite**, **DAX**, and **Power BI**.
 
 ---
 
-## 🛠️ Architecture & Tech Stack
-- **Database Storage & Aggregation:** SQLite, SQL
-- **Data Processing & ML Pipeline:** Python (`pandas`, `numpy`, `scikit-learn`, `xgboost`)
-- **Dashboard & BI Visualization:** Power BI Desktop
-- **Environment & Version Control:** Git, VS Code
+## 📌 Executive Summary
+
+Modern retail supply chains struggle with balancing overstocking costs against revenue loss from stockouts. This project bridges predictive machine learning with dynamic reporting to optimize inventory levels across product categories:
+
+* **Demand Prediction:** Built an XGBoost time-series model to forecast weekly demand patterns.
+* **Inventory Safety Stock Logic:** Automated Safety Stock and Reorder Point ($ROP$) calculations based on forecasted demand and target service levels.
+* **Executive Dashboards:** Interactive Power BI report featuring DAX variance analysis, report-page tooltips, conditional inventory alert highlighting, and category-level slicing.
+
+---
+
+## 📊 Power BI Executive Dashboard
+
+![Demand & Sales Forecast](assets/dashboard_page1.png)
+
+![Inventory Optimization & Reorder Status](assets/dashboard_page2.png)
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+| Layer | Technology | Key Usage |
+| :--- | :--- | :--- |
+| **Data Ingestion & Storage** | SQLite / SQL | Storing relational transaction history and executing aggregation queries |
+| **Machine Learning** | Python (XGBoost, Pandas, Scikit-Learn) | Time-series feature engineering and multi-step sales forecasting |
+| **Data Modeling & DAX** | Power BI | Dedicated `_Measures` table, custom tooltips, dynamic metrics |
+| **Version Control** | Git / GitHub | Code management and asset documentation |
 
 ---
 
 ## ⚙️ Project Pipeline
 
 ```text
-[ Raw Sales CSV ] 
-       │
-       ▼
+[ Raw Sales CSV ]
+        │
+        ▼
 [ SQLite Database ] ──( SQL Queries )──► [ Aggregated Weekly Data ]
                                                      │
                                                      ▼
-                                          [ XGBoost Forecast Model ]
+                                         [ XGBoost Forecast Model ]
                                                      │
                                                      ▼
                                          [ Safety Stock & ROP Logic ]
